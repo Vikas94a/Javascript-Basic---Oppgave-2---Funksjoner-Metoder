@@ -16,9 +16,18 @@ The function should take in a number as a parameter and return
 received is an even number.
 
 ******************************************************************************/
+/*
+function evenNumber(num) {
+  if (num % 2 === 0) {  //Check if the number is even (divisible by 2)
+    return "It's an Even number";  // Return the answer and stop if the condition is true
+  } else {
+    return "It's a Odd Number";
+  }
+}
 
-
-  
+let result = evenNumber(51);
+console.log(result);
+*/
 /******************************************************************************
 2.
 
@@ -30,7 +39,17 @@ in upper case with an exclamation mark at the end.
 Example: "This is cool" should return "THIS IS COOL!"
 
 ******************************************************************************/
+/*
 
+const capitalLetter = (str) => {
+  const text = str.toUpperCase(); // Change the str into uppeecase
+  return `"${text}!"`; // add "" and ! in the string
+};
+
+let result = capitalLetter("hei good morning");
+
+console.log(result);
+*/
 
 /******************************************************************************
 3.
@@ -53,8 +72,26 @@ The function should return:
 If no hour is received, your function should return an error message.
 
 ******************************************************************************/
+/*
+const greetingMesseg = (name, timing) => {
+  if (timing < 0) {
+    return "Invalid time";
+  } else if (timing <= 5) {
+    return `Good night ${name}`;
+  } else if (timing <= 11) {
+    return `Good morning ${name}`;
+  } else if (timing <= 17) {
+    return `Good day ${name}`;
+  } else if (timing <= 23) {
+    return `Good evening ${name}`;
+  } else return "Invalid time ";
+};
+
+let result = greetingMesseg("Tommy", 24);
+console.log(result);
 
 
+*/
 
 /******************************************************************************
 4.
@@ -69,8 +106,25 @@ Example 1: ["Red", "Green", "Blue", "Yellow"] should return ["Green", "Blue"]
 Example 2: ["One", "Two", "Three", "Four", "Five", "Six"] should return
 ["Two", "Three", "Four", "Five"]
 ******************************************************************************/
+/*
+function removeFirstAndLast(array) {
+  array.pop();
+  array.shift();
+  return array;
+}
 
+let result = removeFirstAndLast(["red", "green", "blue", "yellow"]);
+let resuntSec = removeFirstAndLast([
+  "One",
+  "Two",
+  "Three",
+  "Four",
+  "Five",
+  "Six",
+]);
+console.log(result, resuntSec);
 
+*/
 
 /******************************************************************************
 5.
@@ -90,13 +144,23 @@ Example2: " It's hard to use methods " should return "It's hard to use methods"
 Example3: "   hard        " should return "fun"
 
 ******************************************************************************/
+/*
+const transformText = (str) => {
+  const newText = str.replace("hard", "fun");
+  return newText.trim();
+};
 
-
-
+let exampelText = transformText("  JavaScript is hard   ");
+let methodTest = transformText(
+  "                         It's hard to use method"
+);
+console.log(exampelText, methodTest);
+*/
 /******************************************************************************
 6.
 
-Use array methods to do the following:
+Use array metho
+ds to do the following:
 
  - Remove the first hero of the array (Spider-Man)
  - Replace "Doctor Strange" with "Skrull"
@@ -105,9 +169,21 @@ Use array methods to do the following:
 
 ******************************************************************************/
 
-const heroes = ["Spider-Man", "Thor", "Hulk", "Doctor Strange", "Iron Man", "Black Widow"]
+const heroes = [
+  "Spider-Man",
+  "Thor",
+  "Hulk",
+  "Doctor Strange",
+  "Iron Man",
+  "Black Widow",
+];
 
-
+heroes.shift(1);
+let finalResult = heroes.splice(2, 1, "skrull");
+heroes.splice(0, 2, "Captain America ");
+let heroEmoji = heroes.join("💪");
+console.log(finalResult);
+console.log(heroes, heroEmoji);
 
 /******************************************************************************
 7.
@@ -135,9 +211,23 @@ If the parameter received is any other datatype:
 Return "😎Primitive values only😎"
 
 ******************************************************************************/
+/*
+let parameterDetector = (str) => {
+  if (typeof str === "string") {
+    return `😎${str}😎`;
+  } else if (typeof str === "number") {
+    let newNum = str * 2;
+    return String(`😎${newNum}😎`);
+  } else if (typeof str === "boolean") {
+    if (str === true) {
+      return `"😎yeah😎"`;
+    } else return `"😎chill😎"`;
+  } else return `"😎Primitive value only😎"`;
+};
 
-
-
+let result = parameterDetector([3, 3]);
+console.log(result);
+*/
 /******************************************************************************
 8.
 
@@ -161,5 +251,35 @@ Example3: (["One", "Two", "Three"], "Four") --> ["One", "Two", "Three", "Four"]
 Example4: (["One", "Two", "Three"], "Two") --> ["One", "Three"]
 ******************************************************************************/
 
+// loops method
+/*
+function filterArrayByString(array, str) {
+  // let newArray = [];
+  for (let i = 0; i < array.length; i++) {
+    if (array[i] === str) {
+      let newArray = array.splice(i, 1);
+      return array;
+    } else if (array[i] !== str) {
+      let addArray = array.push(str);
+      return array;
+    }
+  }
+}
 
-  
+let result = filterArrayByString(["green", "red", "yellow"], "black");
+
+console.log(result);
+*/
+
+// arrayFixer = (arr, str) => {
+//   const index = arr.indexOf(str);
+//   if (index !== -1) {
+//     arr.splice(index, 1);
+//   } else if (index === -1) {
+//     arr.push(str);
+//   }
+//   return arr;
+// };
+
+// let result = arrayFixer(["red", "blue", "black"], "red");
+// console.log(result);
